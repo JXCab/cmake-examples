@@ -8,6 +8,7 @@ set (deb_example_VERSION_MINOR 2)
 set (deb_example_VERSION_PATCH 2)
 set (deb_example_VERSION "${deb_example_VERSION_MAJOR}.${deb_example_VERSION_MINOR}.${deb_example_VERSION_PATCH}")
 
+message("PROJECT VERSION " ${deb_example_VERSION})
 
 ############################################################
 # Create a library
@@ -66,3 +67,8 @@ set(CPACK_PACKAGE_VERSION ${deb_example_VERSION})
 
 # Include CPack
 include(CPack)
+
+# A CPack Generator can be used by a make package target to create an installer.
+# cmake .. -DCMAKE_INSTALL_PREFIX=/home/cab/Rvbust/Sources/cmake/cmake-examples/06-installer/deb/install
+# make package
+# sudo dpkg -i 安装时是lib 中的 .so, 在 usr/lib 目录下
